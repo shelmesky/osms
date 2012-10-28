@@ -1,0 +1,13 @@
+def CheckLogin(username,password):
+    if username == "username" and password == "password123":
+        return True
+    else:
+        return False
+
+def Logout(request):
+    try:
+        print request.session["username"]
+    except Exception,e:
+        print e
+    else:
+        return True

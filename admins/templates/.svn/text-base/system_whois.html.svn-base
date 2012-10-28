@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+                {% block title.super %}
+                {% endblock %}
+                
+                {% block nav_bar %}
+                    <a href="/admins/right">OSMS 1.2/<a href="/system">System</a>/Whois
+                {% endblock %}
+
+{% block main_body %}
+
+{% if show_whois_result %}
+
+<pre>
+{{ show_whois_result }}
+</pre>
+{% endif %}
+
+{% if show_whois_form %}
+
+        <form id="form1" name="form1" method="post" action="">
+          <label>输入域名或IP地址查询 &nbsp;
+          <input type="text" name="NAME" />
+          <input type="submit" name="Button" id="button" value=" 提交 " />
+        </form>
+
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,15 @@
+<html>
+    <head>
+        <title>Powered By Django</title>
+    </head>
+    
+    <body>
+        {% if metas %}
+            {% for k,v in metas.items %}
+            {{ k }} : &nbsp; {{ v }} <br />
+            {% endfor %}
+        {% else %}
+            Can not found data.
+        {% endif %}
+    </body>
+</html>

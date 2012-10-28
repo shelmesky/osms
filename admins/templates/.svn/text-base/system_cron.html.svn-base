@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+                {% block title.super %}
+                {% endblock %}
+                
+                {% block nav_bar %}
+                    <a href="/admins/right">OSMS 1.2</a>/Cron
+                {% endblock %}
+
+{% block main_body %}
+<br />
+{% if ERROR_TRANSFER %}
+<font color="red">
+    <p>连接到远程主机时发生错误！！！</p>
+</font>
+{% endif %}
+
+
+{% if ERROR_OPENFILE %}
+<font color="red">
+    <p>读取crontab文件时发生错误！！！</p>
+</font>
+{% endif %}
+
+
+{% if ERROR_WRITE_FILE %}
+    <font color=""><p>更新文件错误！！！</p></font>
+{% endif %}
+
+{% if FINISHED_WRITE_FILE %}
+    <font color=""><p>写入文件完毕。</p></font>
+{% endif %}
+
+
+<form id="form1" name="form1" method="post" action="">
+    
+    {% if show_hostlist_form %}
+    {% if devices %}
+    <input type="hidden" name="Type" value="CRON_CHOOSE_HOST" />
+    <label>选择设备 &nbsp;
+    <select name="choose_host">
+        {% for HOST in devices %}
+        <option value="{{ HOST.Ip }}">{{ HOST.Ip }}</option>
+        {% endfor %}
+    </select>
+    <input type="submit" name="Button" id="button" value=" 提交 " />
+    {% endif %}
+    {% endif %}
+    
+    {% if show_cron_delete_form %}
+    <input type="hidden" name="Type" value="CRON_MODIFY" />
+    <input type="hidden" name="cronfile" value="{{ show_cron_delete_form.real_cron_file }}" />
+    <input type="hidden" name="host" value="{{ show_cron_delete_form.choose_host }}" />
+    <textarea name="cron_content" cols="120" rows="20">{{ show_cron_delete_form.lines }}</textarea>
+    <br />
+    <input type="submit" name="Button" id="button" value=" 提交 " />
+    {% endif %}
+{% endblock %}
+
+

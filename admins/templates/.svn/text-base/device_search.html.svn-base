@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+
+                {% block title.super %}
+                {% endblock %}
+                
+                {% block nav_bar %}
+                    <a href="/admins/right">OSMS 1.2</a>/Device
+                {% endblock %}
+
+
+
+{% block main_body %}
+            {% if show_search_form %}
+          <br />
+          <form id="form1" name="form1" method="post" action="">
+          <label>输入任意关键字查找
+          <input type="text" name="keyword" />
+          <input type="hidden" name="Type" value="ADD_IP" />
+          <input type="submit" name="Button" id="button" value=" 提交 " />
+            
+            {% endif %}
+
+
+            {% if show_search_all and devices %}
+          <table class="colorTable" style="width:98%;" border="1" cellspacing="0" cellpadding="0" align="center"> 
+          <tbody>
+            <caption>设备列表</caption> 
+            <tr> 
+            <th width="12.5%" height="15" valign="top" bgcolor="#CCCCCC"> 
+            <p align="center">设备IP</p> 
+            </th> 
+            <th width="12.5%"  valign="top" bgcolor="#CCCCCC"> 
+            <p align="center">CPU信息</p> 
+            </th> 
+            <th width="12.5%" valign="top" bgcolor="#CCCCCC"> 
+            <p align="center">内存信息</p> 
+            </th> 
+            <th width="12.5%" valign="top" bgcolor="#CCCCCC"> 
+            <p align="center">磁盘信息</p> 
+            </th> 
+            <th width="12.5%" valign="top" bgcolor="#CCCCCC"> 
+            <p align="center">设备位置</p> 
+            </th> 
+            <th width="12.5%" valign="top" bgcolor="#CCCCCC"> 
+            <p align="center">设备状态</p> 
+            </th> 
+            <th width="12.5%" valign="top" bgcolor="#CCCCCC"> 
+            <p align="center">所运行服务</p> 
+            </th> 
+            <th width="12.5%" valign="top" bgcolor="#CCCCCC"> 
+            <p align="center">负责人</p> 
+            </th>
+            <th width="12.5%" valign="top" bgcolor="#CCCCCC"> 
+            <p align="center">查看详细信息</p>
+            </th> 
+            </tr> 
+            {% for DBDA in devices %}
+            <tr> 
+            </td height=10 > 
+            <td > 
+            <p>{{ DBDA.Ip }}</p> 
+            </td> 
+            <td > 
+            <p>{{ DBDA.Cpu }}</p> 
+            </td> 
+            <td > 
+            <p>{{ DBDA.Mem }}</p> 
+            </td> 
+            <td > 
+            <p>{{ DBDA.Disk }}</p> 
+            </td> 
+            <td > 
+            <p>{{ DBDA.Position }}</p> 
+            </td> 
+            <td > 
+            <p>{{ DBDA.State }}</p> 
+            </td> 
+            <td > 
+            <p>{{ DBDA.Server }}</p> 
+            </td> 
+            <td > 
+            <p>{{ DBDA.Owner }}</p> 
+            </td>
+            <td > 
+            <p>详细</p> 
+            </td> 
+            </tr>
+            {% endfor %}
+          </tbody> 
+          </table>
+        {% endif %}
+        
+        
+            {% if ERROR %}
+            <font color="red"><p>是输入的数据有问题，还是搜索不给力？？？</font>
+            <br />
+            {% endif %}
+{% endblock %}

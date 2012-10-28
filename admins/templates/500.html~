@@ -1,0 +1,9 @@
+<html>
+    <head>
+        <title>HTTP ERROR 500</title>
+    </head>
+    
+    <body>
+        <p>HTTP ERROR 500 有错误发生，请打开Django的调试模式检查错误! </p>
+    </body>
+</html>

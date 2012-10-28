@@ -1,0 +1,17 @@
+{% block nav_bar %}
+{% endblock %}
+
+
+{% block powered_by %}
+<pre>
+Powered By Django
+Powered By Python
+</pre>
+{% endblock %}
+
+
+
+
+{% block execute_time %}
+{{ execute_time }}
+{% endblock %}

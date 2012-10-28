@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+                {% block title.super %}
+                {% endblock %}
+                
+                {% block nav_bar %}
+                    <a href="/admins/right">OSMS 1.2</a>/Run Command
+                {% endblock %}
+
+{% block main_body %}
+
+{% if ERROR_INIT_DAEMON %}
+
+<font color=""><p>启动远程SSH会话错误！！！</p></font>
+
+{% endif %}
+
+<form id="form1" name="form1" method="post" action="">
+    
+    {% if show_hostlist_form %}
+    {% if devices %}
+    <label>选择设备 &nbsp;
+    <select name="choose_host">
+        {% for HOST in devices %}
+        <option value="{{ HOST.Ip }}">{{ HOST.Ip }}</option>
+        {% endfor %}
+    </select>
+    <input type="submit" name="Button" id="button" value=" 提交 " />
+    {% endif %}
+    {% endif %}
+
+    {% if random_pass %}
+    
+    <a href="http://{{ meta.HTTP_HOST }}:{{ random_port }}" target="_blank">http://osms.qihang001.com:{{ random_port }}</a>
+    请使用随机密码：{{ random_pass }} 连接
+    
+    {% endif %}
+
+{% endblock %}

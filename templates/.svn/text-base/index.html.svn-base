@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <title>Login Page</title>
+    </head>
+    
+    <body>
+    {% if failed_login %}
+    <p style="color: red">
+        Username Or Password incorrect!
+    </p>
+    {% endif %}
+    
+    
+    {% if form.errors %}
+    <p style="color:red;">
+        Please correct the error {{ from.errors|pluralize }} below.
+    </p>
+    {% endif %}
+    
+    <br />
+    <br />
+   <center>
+    <form action="" method="post">
+  <table>
+            {{ form.as_table }}
+    </table>
+        <input type="submit" value=" Login ">
+    </form>
+    </conter>
+    
+    </body>
+</html>

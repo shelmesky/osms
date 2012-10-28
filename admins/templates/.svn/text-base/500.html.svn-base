@@ -1,0 +1,16 @@
+<html>
+    <head>
+        <title>HTTP ERROR 500</title>
+    </head>
+    
+    <body>
+        <p>HTTP ERROR 500 有错误发生，请打开Django的调试模式检查错误! </p>
+    </body>
+</html>
+
+<style type="text/css">
+a:link {color:green}	
+a:visited {color:green}
+a:hover {color: green}	
+a:active {color: green;}
+</style>

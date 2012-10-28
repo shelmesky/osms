@@ -1,0 +1,22 @@
+<ul>
+	<li><a href="/device/" target="main">Device</a></li>
+	<ul>
+	<li><a href="/device/search/" target="main">Search</a></li>
+	<li><a href="/device/adddev" target="main">Add Device</a></li>
+	<li><a href="/device/deldev" target="main">Del Device</a></li>
+	<li><a href="/device/chndev" target="main">Change Device</a></li>
+	</ul>
+	<li><a href="/system/" target="main">System</a></li>
+	<ul>
+	<li><a href="/system/status/" target="main">System Status</a></li>
+	<li><a href="/system/run_command" target="main">Run Command</a></li>
+	<li><a href="/system/cron" target="main">System Cron</a></li>
+	<li><a href="/system/add_cron" target="main">Add Cron</a></li>
+	</ul>
+	<li><a href="/usermgm" target="main">User</a></li>
+	<ul>
+	<li><a href="/useradd/" target="main">Add User</a></li>
+	<li><a href="/userdel/" target="main">Del User</a></li>
+	<li><a href="/userchpasswd" target="main">Change Password</a></li>
+	</ul>
+</ul>

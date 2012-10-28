@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+                {% block title.super %}
+                {% endblock %}
+                
+                {% block nav_bar %}
+                    OSMS 1.2
+                {% endblock %}
+
+{% block main_body %}
+
+这里是主要内容
+
+{% endblock %}
+
+
+{% block powered_by.super %}
+{% endblock %}

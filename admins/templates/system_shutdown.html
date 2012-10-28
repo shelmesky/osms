@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+                {% block title.super %}
+                {% endblock %}
+                
+                {% block nav_bar %}
+                    <a href="/admins/right">OSMS 1.2</a>/<a href="/system">System</a>/Shutdown
+                {% endblock %}
+
+{% block main_body %}
+
+{% if devices %}
+ <table class="colorTable" style="width:98%;" border="1" cellspacing="0" cellpadding="0" align="center"> 
+          <tbody>
+            <caption>设备列表</caption> 
+            <tr>
+            <th width="12.5%" height="15" valign="top" bgcolor="#CCCCCC"> 
+            <p align="center">设备IP</p> 
+            </th>
+            <th width="12.5%"  valign="top" bgcolor="#CCCCCC"> 
+            <p align="center">运行时间</p> 
+            </th> 
+            <th width="12.5%" valign="top" bgcolor="#CCCCCC"> 
+            <p align="center">系统负载</p> 
+            </th> 
+            <th width="12.5%" valign="top" bgcolor="#CCCCCC"> 
+            <p align="center"></p> 
+            </th> 
+            <th width="12.5%" valign="top" bgcolor="#CCCCCC"> 
+            <p align="center"></p> 
+            </tr>
+            {% for host in devices %}
+            <tr>
+            </td height=10 >
+            <td >
+            <p>{{ host.IP }}</p>
+            </td>
+            <td >
+            <p>{{ host.UPTIME }}</p>
+            </td> 
+            <td > 
+            <p>{{ host.LOADAVG }}</p> 
+            </td> 
+            <td > 
+            <a href="/system/action/reboot/{{ host.IP }}/"><p>重启</p></a>
+            </td>
+            <td >
+            <a href="/system/action/halt/{{ host.IP }}/"><p>关机</p></a> 
+            </td> 
+            </tr> 
+            {% endfor %}
+          </tbody> 
+          </table>
+ {% endif %}
+ 
+ 
+{% if action_finished %}
+
+<font color="red"><p>命令发送成功。</p></font>
+
+{% endif %}
+
+{% if action_error %}
+
+<font color="red"><p>命令发送失败！！！</p></font>
+
+{% endif %}
+
+{% endblock %}
+
+
+
+{% block powered_by.super %}
+{% endblock %}
