@@ -9,7 +9,8 @@ import subprocess
 import shelve
 
 install_log = "install.log"
-local_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "osms")
+local_path = os.path.dirname(os.path.abspath(__file__))
+package_path = os.path.join(local_path, "osms")
 
 
 class Install(object):
@@ -18,7 +19,7 @@ class Install(object):
         self.check_platform()
         self.check_requires()
         
-        if not os.path.exists(local_path):
+        if not os.path.exists(package_path):
             print "Error: main package does not exist!"
             sys.exit(1)
         
