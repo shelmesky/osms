@@ -75,7 +75,7 @@ class Install(object):
                 db.close()
             except:
                 print "error ocurred while store log."
-                return True
+                return False
             else:
                 return True
         elif action == "get":
